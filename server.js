@@ -10,7 +10,7 @@ let phrases = [];
 //    cert: fs.readFileSync('cert.pem')
 //};
 
-fs.readFileSync('./phrases.txt').toString().split('\n').forEach(line => {
+fs.readFileSync('phrases.txt').toString().split('\n').forEach(line => {
     if (line.trim() !== '') {
         phrases.push(line.trim());
     }
@@ -19,7 +19,7 @@ fs.readFileSync('./phrases.txt').toString().split('\n').forEach(line => {
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + './public/index.html');
+    res.sendFile(__dirname + 'public/index.html');
 });
 
 app.get('/get_phrase', (req, res) => {
