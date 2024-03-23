@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.js.backup';
 import RandomPhraseComponent from './RandomPhraseComponent';
 
 const phrases = [
@@ -34,13 +36,27 @@ const phrases = [
     'Твои усилия принесут тебе успех и признание.'
 ];
 
-const App = () => {
-  return (
-    <div>
-      <h1>Нажмите кнопку, чтобы узнать ваше предсказание:</h1>
-      <RandomPhraseComponent />
-    </div>
-  );
-};
+function RandomPhraseComponent() {
+  fetch('/get_phrase')
+      .then(response => response.text())
+      .then(data => document.getElementById('phrases').innerText = data);
+}
 
-export default App;
+function App() {
+  return (
+      <div>
+          <button onClick={RandomPhraseComponent}>Получить предсказание</button>
+      </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App>
+//       <RandomPhraseComponent phrases={phrases} />
+//     </App>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
