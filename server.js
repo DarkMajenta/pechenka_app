@@ -5,10 +5,10 @@ const app = express();
 const port = 3000;
 let phrases = [];
 
-//const options = {
-//    key: fs.readFileSync('key.pem'),
-//    cert: fs.readFileSync('cert.pem')
-//};
+const options = {
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem')
+};
 
 fs.readFileSync('phrases.txt').toString().split('\n').forEach(line => {
     if (line.trim() !== '') {
