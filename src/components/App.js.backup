@@ -36,12 +36,27 @@ const phrases = [
     'Твои усилия принесут тебе успех и признание.'
 ];
 
+function RandomPhraseComponent() {
+  fetch('/get_phrase')
+      .then(response => response.text())
+      .then(data => document.getElementById('phrase').innerText = data);
+}
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App>
-      <RandomPhraseComponent phrases={phrases} />
-    </App>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+  return (
+      <div>
+          <button onClick={RandomPhraseComponent}>Получить предсказание</button>
+      </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App>
+//       <RandomPhraseComponent phrases={phrases} />
+//     </App>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );

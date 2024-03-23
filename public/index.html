@@ -11,8 +11,11 @@
 <body>
     <h1>Нажмите кнопку, чтобы узнать ваше предсказание:</h1>
     <button onclick="RandomPhraseComponent()">Получить предсказание</button>
+    <div id="root"></div>
     <p id="phrase"></p>
 
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script>
         function RandomPhraseComponent() {
             fetch('/get_phrase')
