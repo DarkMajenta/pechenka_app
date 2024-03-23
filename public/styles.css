@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Медиа-запрос для адаптивной вёрстки */
+@media only screen and (max-width: 600px) {
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+/* Анимация декоративного эффекта при нажатии на кнопку */
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+button:hover {
+    animation: scaleAnimation 0.5s forwards;
+}
