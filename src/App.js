@@ -4,7 +4,7 @@ function App() {
     const [phrase, setPhrase] = useState('');
 
     useEffect(() => {
-        fetch('get_phrase')
+        fetch('https://main--spectacular-babka-7aa6e1.netlify.app/get_phrase')
             .then(response => response.text())
             .then(data => setPhrase(data));
     }, []);
