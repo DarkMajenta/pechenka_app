@@ -6,7 +6,7 @@ const App = () => {
     const [phrase, setPhrase] = useState('');
 
     useEffect(() => {
-        getPhrase().then((data) => setPhrase(data.phrase));
+        getRandomPhrase().then((data) => setPhrase(data.phrase));
     }, []);
 
     return (
