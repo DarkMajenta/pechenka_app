@@ -13,11 +13,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "nodemon src/App.js",
-    "build": "nodemon src/App.js",
-    "test": "nodemon src/App.js",
-    "eject": "nodemon src/App.js"
-  },
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+ },
   "browserslist": {
     "production": [
       ">0.2%",
