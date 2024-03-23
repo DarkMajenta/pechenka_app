@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import getPhrase from './getPhrase';
-import RandomPhraseComponent from './RandomPhraseComponent';
+import RandomPhraseComponent from './getRandomPhrase';
 
 const App = () => {
     const [phrase, setPhrase] = useState('');
