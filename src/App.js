@@ -1,32 +1,20 @@
-const express = require('express');
-//const fs = require('fs');
-const https = require('https');
-const app = express();
-const port = 3000;
-let phrases = [];
+import React, { useEffect, useState } from 'react';
 
-const options = {
-    key: fs.readFileSync('key.pem'),
-    cert: fs.readFileSync('cert.pem')
-};
+function App() {
+    const [phrase, setPhrase] = useState('');
 
-fs.readFileSync('phrases.txt').toString().split('\n').forEach(line => {
-    if (line.trim() !== '') {
-        phrases.push(line.trim());
-    }
-});
+    useEffect(() => {
+        fetch('http://localhost:3000/get_phrase')
+            .then(response => response.text())
+            .then(data => setPhrase(data));
+    }, []);
 
-app.use(express.static('public'));
+    return (
+        <div>
+            <h1>Random Phrase:</h1>
+            <p>{phrase}</p>
+        </div>
+    );
+}
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + 'public/index.html');
-});
-
-app.get('/get_phrase', (req, res) => {
-    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    res.send(randomPhrase);
-});
-
-https.createServer(options, app).listen(port, () => {
-    console.log(`Приложение доступно по адресу https://localhost:${port}`);
-});
+export default App;
