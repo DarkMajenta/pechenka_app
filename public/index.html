@@ -14,10 +14,18 @@
 
     <script>
         function getRandomPhrase() {
-            fetch('/get_phrase')
-                .then(response => response.text())
-                .then(data => document.getElementById('phrase').innerText = data);
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById("phrase").innerText = xhr.responseText;
+                    }
+                }
+            };
+            xhr.open("GET", "/get_phrase", true);
+            xhr.send();
         }
     </script>
+   
 </body>
 </html>
