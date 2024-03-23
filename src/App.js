@@ -4,7 +4,7 @@ function App() {
     const [phrase, setPhrase] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:3000/get_phrase')
+        fetch('get_phrase')
             .then(response => response.text())
             .then(data => setPhrase(data));
     }, []);
