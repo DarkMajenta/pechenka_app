@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root"></div>
+    <h1>Нажмите кнопку, чтобы узнать ваше предсказание:</h1>
+    <button onclick="RandomPhraseComponent()">Получить предсказание</button>
+    <p id="phrase"></p>
+
+    <script>
+        function RandomPhraseComponent() {
+            fetch('/get_phrase')
+                .then(response => response.text())
+                .then(data => document.getElementById('phrase').innerText = data);
+        }
+    </script>
 </body>
 
 </html>
