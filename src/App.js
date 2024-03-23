@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+// import getPhrase from './getPhrase';
+import RandomPhraseComponent from './RandomPhraseComponent';
 
-function App() {
+const App = () => {
     const [phrase, setPhrase] = useState('');
 
     useEffect(() => {
-        fetch('https://main--spectacular-babka-7aa6e1.netlify.app/get_phrase')
-            .then(response => response.text())
-            .then(data => setPhrase(data));
+        getPhrase().then((data) => setPhrase(data.phrase));
     }, []);
 
     return (
-        <div>
-            <h1>Random Phrase:</h1>
-            <p>{phrase}</p>
+        <div className="container">
+            <p className="phrase">{phrase}</p>
         </div>
     );
-}
+};
 
 export default App;
