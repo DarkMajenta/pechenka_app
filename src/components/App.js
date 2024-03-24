@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.js.backup';
-import RandomPhraseComponent from './RandomPhraseComponent';
 
 const phrases = [
     'Сегодня ты найдешь неожиданный источник вдохновения.',
