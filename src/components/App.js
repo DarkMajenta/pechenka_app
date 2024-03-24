@@ -37,7 +37,7 @@ const phrases = [
 ];
 
 function RandomPhraseComponent() {
-  fetch('get_phrase')
+  fetch('/get_phrase')
       .then(response => response.text())
       .then(data => document.getElementById('phrases').innerText = data);
 }
