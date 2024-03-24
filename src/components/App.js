@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
 
 const phrases = [
     'Сегодня ты найдешь неожиданный источник вдохновения.',
