@@ -23,11 +23,6 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/get_phrase', (req, res) => {
-    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    res.send(randomPhrase);
-});
-
 https.createServer(options, app).listen(port, () => {
     console.log(`Приложение доступно по адресу https://localhost:${port}`);
 });
